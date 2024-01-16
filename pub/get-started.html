@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="fashionly.css">
+    <title> API V1 | Fashionly.js </title>
+
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer type="text/javascript" src='fashionly.js'></script>
+    <script defer type="text/javascript" src='get-started.js'></script>
+
+
+ </head>
+ 
+ <body>
+
+ 	<!-- Navbar -->
+    <nav>
+      <div class="name">
+        <a href="./index.html">Fashionly.js</a>
+      </div>
+      <div class="links">
+        <a href="./get-started.html"> Get Started</a>
+        <a href="./examples.html">Examples</a>
+        <a href="./api-v1.html">API</a>
+      </div>
+    </nav>
+    	<!-- Navbar -->
+    <section>
+      <h1>Getting Started</h1>
+
+      <div id="mydiv" class="slideDiv"style="margin-left: 8%; margin-right: 8%; margin-bottom: 30px" ></div>
+      <div id="mydivside" >
+        <p>Let's start with the simplest product card example.  </p>
+        <p>- Click on <b>&lt;</b> and <b>&gt;</b> to browse the slides </p>
+        <p>- Click "dots" to direct to specific pages  </p>
+        <p>- Click header to direct to be redirect to product page </p>
+        <p>- Hover over picture, caption disappears.</p>
+        <p>- Hover over picture, the slides starts to play every second.</p>
+        <p>- Leave the picture area, the slides stops playing.</p>
+        <br>
+        <br><br>
+      </div>
+      <br>
+      <p>Start by downloading the library source file fashionly.js and style file fashionly.css </p>
+      <p>Add following lines in your <b>&lt;head&gt;</b> tag to include the compiled JavaScript library, 
+        stylesheets, and external modules such as jQuery.</p>
+      <div class="api-card">
+        <div>
+          <div class="code-header">
+                HTML Code 
+          </div>
+          <pre class="code-block">
+            <code class="code-content">
+    &lt;link rel="stylesheet" type="text/css" href="fashionly.css"&gt;
+    &lt;script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script defer type="text/javascript" src='fashionly.js'&gt;&lt;/script&gt;
+            </code>
+          </pre>
+        </div>
+    </div>
+
+      <p> First, create a div container: </p>
+      <div>
+        <div class="code-header">
+              HTML Code 
+        </div>
+        <pre class="code-block">
+          <code class="code-content">
+    &lt;div id="mydiv"&gt;&lt;/div&gt;
+          </code>
+        </pre>
+      </div>
+      <p> Then, create some sample data to start with:</p>
+      <div>
+        <div class="code-header">
+              JS Code 
+        </div>
+        <pre class="code-block">
+          <code class="code-content">
+    const top1Pictures = [new Picture('./pics/top-white.jpg', "white"), 
+                          new Picture('./pics/top-green.jpg', "green"), 
+                          new Picture('./pics/top-purple.jpg', "purple")]
+
+    const top1Expanded = new ExpandedLabel("Top 1", "https://www.urbanoutfitters.com/......", 
+                                            "KOTO 01.004 Shrunken Tee", 
+                                            24, "CA$", top1Pictures, "black")
+          </code>
+        </pre>
+      </div>
+      <p> Now, add a simple ProductCardGenerator to your div</p>
+      <div>
+        <div class="code-header">
+              JS Code 
+        </div>
+        <pre class="code-block">
+          <code class="code-content">
+    // The code below will render a product card with picture slideshow, triggered auto-play when hovering
+    const pcg = new ProductCardGenerator(
+                          cardId: "mydiv", expandedLabel: top1Expanded, 
+                          arrows: true, auto_play: true, auto_play_speed: 1000, defaut_playing: false)
+    pcg.renderCard()
+          </code>
+        </pre>
+      </div>      
+   </section>
+   <section>
+    <p> Congrats, you have a simple product card generated.  Check the "<a href="./examples.html">Examples</a>" page to explore more :)</p> 
+   </section>
+   <br>
+
+   <section class="footer">
+    <hr>
+    <p class="footer-text">Fashion.js Library v1.0.0, authored by Sailing Ni</p>
+ </section>
+      
+</body>
+</html>
+
+ </body>
+
+</html>

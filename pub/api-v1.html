@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="fashionly.css">
+    <title> API V1 | Fashionly.js </title>
+
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+ </head>
+ 
+ <body>
+
+ 	<!-- Navbar -->
+    <nav>
+      <div class="name">
+        <a href="./index.html">Fashionly.js</a>
+      </div>
+      <div class="links">
+        <a href="./get-started.html"> Get Started</a>
+        <a href="./examples.html">Examples</a>
+        <a href="./api-v1.html">API</a>
+      </div>
+    </nav>
+ 
+  <!-- API List -->
+     <section class="api-section">
+      <h1>API v1.0.0</h1>
+      <!--Picture -->
+      <p><b>Picture</b></p>
+      <table class="params-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Default</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>picSrc</b></td>
+            <td>/</td>
+            <td>String</td>
+            <td>This specifies path of the image src for this picture.</td>
+          </tr>
+          <tr>
+            <td><b>caption</b></td>
+            <td>/</td>
+            <td>String</td>
+            <td> This is the caption to be added to this picture. It could be the color or type of product, usually in one word.</td>
+          </tr>
+        </tbody>
+      </table>
+
+         <!--ExpandedLabel-->
+         <p><b>ExpandedLabel</b></p>
+         <table class="params-table">
+           <thead>
+             <tr>
+               <th>Property</th>
+               <th>Default</th>
+               <th>Type</th>
+               <th>Description</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td><b>labelName</b></td>
+               <td>/</td>
+               <td>String</td>
+               <td>A label name of the product, which can be a shorted header; this is used to add tags/labels for outfit pictures.</td>
+             </tr>
+             <tr>
+              <td><b>url</b></td>
+              <td>/</td>
+              <td>String</td>
+              <td>A url link to the asscotiated product.</td>
+            </tr>
+            <tr>
+              <td><b>header</b></td>
+              <td>/</td>
+              <td>String</td>
+              <td>Header for this product</td>
+            </tr>
+            <tr>
+              <td><b>price</b></td>
+              <td>/</td>
+              <td>Number</td>
+              <td>Price for this product in the currency related.</td>
+            </tr>
+            <tr>
+              <td><b>currency</b></td>
+              <td>/</td>
+              <td>String</td>
+              <td>Currency the price is in, e.g. "CAD" "CA $" etc.</td>
+            </tr>
+            <tr>
+              <td><b>currency</b></td>
+              <td>/</td>
+              <td>Array[Picture]</td>
+              <td>An array of pictures associated with the product.</td>
+            </tr>
+            <tr>
+              <td><b>captionColor</b></td>
+              <td>"white"</td>
+              <td>color code</td>
+              <td>The color of the caption when rendered; this is defaulted to "white" if not specified.</td>
+            </tr>
+           </tbody>
+         </table>
+        <div>
+      
+      <!-- Magnifier -->
+      <p><b>Magnifier</b></p>
+      <table class="params-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Default</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>imgID</b></td>
+            <td>/</td>
+            <td>String</td>
+            <td>This specifies DOM element &lt;img&gt; id for the img that you would like to magnify.</td>
+          </tr>
+          <tr>
+            <td><b>zoom</b></td>
+            <td>/</td>
+            <td>Number</td>
+            <td> This specifies the number of times you want to "zoom" using the magnifier .</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><b>Magnifier Methods: </b></p>
+      <table class="params-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Params</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>magnify</b></td>
+            <td>/</td>
+            <td>This is the main rendering function for <b>Magnifier</b>, in its body it will call several helpers to animate changes: 
+              <b>moveMagnifier</b>, <b>getCursorPos</b>. This function will render the magnifier glass in DOM, and defines actions its "mousemove" and "mouseleave" events</td>
+          </tr>
+          <tr>
+            <td><b>moveMagnifier</b></td>
+            <td>(e, img, glass, width, height) </td>
+            <td> This function is called in case of "mouseover", to change the position of magnifier glass. </td>
+          </tr>
+        </tbody>
+      </table>  
+ 
+      <!-- ProductCardGenerator -->
+      <p><b>ProductCardGenerator</b></p>
+      <table class="params-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Default</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>cardId</b></td>
+            <td>/</td>
+            <td>String</td>
+            <td>It represents the DOM element &lt;div&gt; where you want to insert this product card</td>
+          </tr>
+          <tr>
+            <td><b>expandedLabel</b></td>
+            <td>/</td>
+            <td>ExpandedLabel</td>
+            <td>An object that contains object information. Expanded labeld: {labelName, url, header, price, currency, pictures, captionColor} </td>
+          </tr>
+          
+          <tr>
+            <td><b>arrows</b></td>
+            <td>/</td>
+            <td>Boolean</td>
+            <td>It represents if the rendered product cards needs arrows, (the product cards contains dots that allows switch between pictures automatically). </td>
+          </tr>
+
+          <tr>
+            <td><b>auto_play</b></td>
+            <td>/</td>
+            <td>Boolean</td>
+            <td>It represents if the rendered product cards needs auto-play function. </td>
+          </tr>
+
+          <tr>
+            <td><b>auto_play_speed</b></td>
+            <td>2000</td>
+            <td>Number</td>
+            <td>It represents time interval auto-play takes, counted in milliseconds. This variable has a default value of 2000, which means auto-switch to next slide in every 2 seconds.</td>
+          </tr>
+
+          <tr>
+            <td><b>defaut_playing</b></td>
+            <td>false</td>
+            <td>Boolean</td>
+            <td>It represents if the rendered product cards needs arrows, (the product cards contains dots that allows switch between pictures automatically). 
+            </td>
+          </tr>
+          <tr>
+            <td><b>*pause</b></td>
+            <td>!defaut_playing</td>
+            <td>Boolean</td>
+            <td> This variable should be true if and only if the auto-play sliders should pause. It is not a variable provided, but auto-set default to the negation of <b>default_playing</b> variable. It will also be updated after user interactions like "hovering".
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><b>ProductCardGenerator Methods: </b></p>
+      <table class="params-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Params</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>renderCard</b></td>
+            <td>/</td>
+            <td>This is the main rendering function for ProductCardGenerator, in its body it will call several helpers to render different parts: 
+              <b>renderCardPicSlider</b>, <b>renderCardHeader</b>, <b>renderCardPrice</b></td>
+          </tr>
+          <tr>
+            <td><b>renderCardHeader</b></td>
+            <td>/</td>
+            <td> This function renders product card header.</td>
+          </tr>
+          <tr>
+            <td><b>renderCardPrice</b></td>
+            <td>/</td>
+            <td> This function renders product card price label.</td>
+          </tr>
+          <tr>
+            <td><b>renderCardPicSlider</b></td>
+            <td>/</td>
+            <td> This function renders product card picture slider. It renders differently based on the object properties
+              <b>arrows, auto_play, auto_play_speed, defaut_playing. </b>
+            </td>
+          </tr>
+        </tbody>
+      </table> 
+  <!--SliderBar -->
+  <p><b>SliderBar</b></p>
+  <table class="params-table">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>sliderBarId</b></td>
+        <td>/</td>
+        <td>String</td>
+        <td>It represents the DOM element &lt;div&gt; where you want to insert this product card slider bar. The div must be clean and contain children in same structure. For example: 
+          <pre class="code-block">
+            <code class="code-content">
+   &lt;div id="sliderBar"&gt;
+      &lt;div id="sliderBar1" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar2" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar3" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar4" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar5" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar6" class="sliderBarItem"&gt;&lt;/div&gt;
+   &lt;/div&gt;
+            </code>
+         </pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><b>SliderBar Methods</b></p>
+  <table class="params-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Params</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>renderSliderBar</b></td>
+        <td>/</td>
+        <td>This is the main rendering function for <b>SliderBar</b>, in its body it will call several helpers: 
+          <b>setInvisible</b>, <b>setVisible</b>, <b>renderChanges</b>. It will create several DOM elements, including two buttons to move left and right, and their animations; as well as some div wrappers around the items.
+        </td>
+      </tr>
+      <tr>
+        <td><b>setInvisible</b></td>
+        <td>(DOM-Element: elem)</td>
+        <td> Set the element to be invisible. Used when the slider bar reached an end.</td>
+      </tr>
+      <tr>
+        <td><b>setVisible</b></td>
+        <td>(DOM-Element: elem)</td>
+        <td> Set the element to be visible. Used when the slider bar starts moving from an end.</td>
+      </tr>
+      <tr>
+        <td><b>renderChanges</b></td>
+        <td> (OuterDiv) </td>
+        <td> This function re-renders slider bar .</td>
+      </tr>
+    </tbody>
+  </table>  
+
+  <!--Location -->
+<p><b>Location </b></p>
+<table class="params-table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>x</b></td>
+      <td>/</td>
+      <td>Number</td>
+      <td>x-coordinate of the location.</td>
+    </tr>
+    <tr>
+      <td><b>y</b></td>
+      <td>/</td>
+      <td>Number</td>
+      <td>y-coordinate of the location.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <!--Label -->
+  <p><b>Label </b></p>
+  <table class="params-table">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>location</b></td>
+        <td>/</td>
+        <td>Location</td>
+        <td>A <b>Location</b> object that represents x, y coordinates of the label relative to the parent div.</td>
+      </tr>
+      <tr>
+        <td><b>labelName</b></td>
+        <td>/</td>
+        <td>String</td>
+        <td>A label name of the product, which can be a shorted header; this is used to add tags/labels for outfit pictures.</td>
+      </tr>
+      <tr>
+        <td><b>*expandedLabel</b></td>
+        <td>null</td>
+        <td>ExpandedLabel: null</td>
+        <td>This is not provided but initialzed to be null. This variable is updated when the label object is linked to a 
+          ExpandedLabel object in function calls.
+        </td>
+      </tr>
+      <tr>
+        <td><b>*dialog</b></td>
+        <td>null</td>
+        <td>DOM-Element: null</td>
+        <td>This is not provided but initialzed to be null. This variable is generated after the label object is linked to an <b>ExpandedLabel</b> and triggered by hovering.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p><b>Label Methods</b></p>
+  <table class="params-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Params</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>linkExpandedLabel</b></td>
+        <td>/</td>
+        <td>This function links an <b>ExpandedLabel</b> object to the <b>Label</b>. After this, the label will render a dialog based this extra information when hovered over.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--OutfitGenerator -->
+<p><b>OutfitGenerator</b></p>
+<table class="params-table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>imgSrc</b></td>
+      <td>/</td>
+      <td>String</td>
+      <td>This specifies path of the image src for this picture.</td>
+    </tr>
+    <tr>
+      <td><b>divId</b></td>
+      <td>/</td>
+      <td>String</td>
+      <td>This specifies DOM element &lt;div&gt; id for the div that you would like to render outfit on.</td>
+    </tr>
+    <tr>
+      <td><b>labels</b></td>
+      <td>/</td>
+      <td>Array[Label]</td>
+      <td>This stores all existing labels asscotiated with the this <b>OutfitGenerator</b>. Initialzed to empty array when constructed. </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>OutfitGenerator Methods</b></p>
+<table class="params-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Params</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>makeOutfit</b></td>
+      <td>/</td>
+      <td>This function provides a option to initialize a <b>OutfitGenerator</b> that uses manual labels. </td>
+    </tr>
+    <tr>
+      <td><b>makeOutfitAndAddLabels</b></td>
+      <td>/</td>
+      <td>This function provides a option to initialize a <b>OutfitGenerator</b> that labels can be created on clicks. 
+        It will call a helper <b>addLabelOnClick</b> to deal with image clicks.
+      </td>
+    </tr>
+    <tr>
+      <td><b>addLabelOnClick</b></td>
+      <td>(x,y)</td>
+      <td> Render a input field that prompts a label name; when user hits "save", a label will be created by calling <b>addLabel</b> function. 
+        (Note: need to add the label information in backend databases to persist the results)
+      </td>
+    </tr>
+    <tr>
+      <td><b>addLabel</b></td>
+      <td> (x, y, labelName, outfitDivName)</td>
+      <td> This function renders a label based on the information provided.</td>
+    </tr>
+    <tr>
+      <td><b>toggleLabels</b></td>
+      <td>/</td>
+      <td> This function allows users to togglle all exsiting labels. If click on image area (not on labels), the labels will appear/disappear on clicks.</td>
+    </tr>
+    <tr>
+      <td><b>getLabelByName</b></td>
+      <td>(labelName)</td>
+      <td> As labels are unique when created, this object can return one matched label object if exists.</td>
+    </tr>
+    <tr>
+      <td><b>getAllLabels</b></td>
+      <td>/</td>
+      <td> Get all the labels created by this generator.</td>
+    </tr>
+    
+  </tbody>
+</table>  
+
+
+   </section>
+
+  <!-- Footer -->
+  <section class="footer">
+    <hr>
+    <p class="footer-text">Fashion.js Library v1.0.0, authored by Sailing Ni</p>
+  </section>
+      
+</body>
+</html>
+
+ </body>
+
+</html>

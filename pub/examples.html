@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="fashionly.css">
+    <title> Examples | Fashionly.js
+    </title>
+
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer type="text/javascript" src='fashionly.js'></script>
+    <script defer type="text/javascript" src='examples.js'></script>
+
+ </head>
+ 
+ <body>
+
+ 	<!-- Navigation bar -->
+    <nav>
+      <div class="name">
+         <a href="./index.html">Fashionly.js</a>
+      </div>
+      <div class="links">
+        <a href="./get-started.html"> Get Started</a>
+        <a href="./examples.html">Examples</a>
+        <a href="./api-v1.html">API</a>
+      </div>
+    </nav>
+
+  
+
+   <!-- SlideShow -->
+   <section>
+      <h1>Product Cards with SlideShow</h1>
+      <p><b>An interactive card with product information and slideshow</b></p>
+      
+      <div id="sliderShow" class="slideDiv"></div>
+      <div id="sliderShow2" class="slideDiv"></div>
+      <div id="sliderShow3" class="slideDiv"></div>
+   
+      <div class="slideshow-container">
+         <p> E.g.1: Manual slideshow with pic div.  </p>
+         <p> E.g.2: Auto-playing SlideShow Default Playing</p>
+         <p> E.g.3: Auto-playing SlideShow Playing When Hovering Over</p>
+      </div>
+   </section>
+
+   <section>
+      <p><b>Example Code:</b></p>
+      <div>
+         <div class="code-header">
+            HTML Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   // Case 1: manual slideshow with pic div
+   &lt;div id="sliderShow" class="slideDiv"&gt;&lt;/div&gt;
+
+   // Case 2: auto slideshow with pic div, default playing
+   &lt;div id="sliderShow2" class="slideDiv"&gt;&lt;/div&gt;
+
+   // Case 3: auto slideshow with pic div, default playing
+   &lt;div id="sliderShow3" class="slideDiv"&gt;&lt;/div&gt;
+            </code>
+         </pre>
+      </div>
+      <br>
+
+      <div>
+         <div class="code-header">
+            JS Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   // Case 1: manual slideshow with pic div
+   const pcg = new ProductCardGenerator(
+                           cardId: "sliderShow", expandedLabel: shoes1Expanded, 
+                           arrows: true, auto_play: false)
+   pcg.renderCard()
+   // Case 2: auto slideshow with pic div, default playing
+   const pcg2 = new ProductCardGenerator(
+                           cardId: "sliderShow2", expandedLabel: bag1Expanded, 
+                           arrows: true, auto_play: true, auto_play_speed: 2500, defaut_playing: true)
+   pcg2.renderCard()
+   
+   // Case 3: auto slideshow with pic div, default playing
+   const pcg3 = new ProductCardGenerator(
+                           cardId: "sliderShow3", expandedLabel: bottom1Expanded, 
+                           arrows: true, auto_play: true, auto_play_speed: 1500, defaut_playing: false)
+   pcg3.renderCard()
+            </code>
+         </pre>
+      </div>
+   </section>
+   <br>
+
+    <!-- Horizontal slider bar for product cards-->
+    <section>
+      <h1> Horizontal Slider Bar for Product Cards</h1>
+      <p><b>Add product cards to a slider container.</b></p>
+      <div id="sliderBar">
+         <div id="sliderBar1" class="sliderBarItem"></div>
+         <div id="sliderBar2" class="sliderBarItem"></div>
+         <div id="sliderBar3" class="sliderBarItem"></div>
+         <div id="sliderBar4" class="sliderBarItem"></div>
+         <div id="sliderBar5" class="sliderBarItem"></div>
+         <div id="sliderBar6" class="sliderBarItem"></div>
+      </div>
+   </section>
+   <section>
+      <p><b>Example Code:</b></p>
+      <div>
+         <div class="code-header">
+            HTML Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   &lt;div id="sliderBar"&gt;
+      &lt;div id="sliderBar1" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar2" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar3" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar4" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar5" class="sliderBarItem"&gt;&lt;/div&gt;
+      &lt;div id="sliderBar6" class="sliderBarItem"&gt;&lt;/div&gt;
+   &lt;/div&gt;
+            </code>
+         </pre>
+      </div>
+      <br>
+
+      <div>
+         <div class="code-header">
+            JS Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   // Step 1: Generator Product Cards for Each Item  cardId, expandedLabel, arrows, auto_play,
+   const cardGenerator = new ProductCardGenerator(
+                             cardId: "sliderBar1", expandedLabel: top1Expanded, 
+                             arrows: false, auto_play: false)
+   cardGenerator.renderCard()
+   
+   const cardGenerator2 = new ProductCardGenerator(
+                              cardId: "sliderBar2", expandedLabel: accessory1Expanded, 
+                              arrows: false, auto_play: false)
+   cardGenerator2.renderCard()
+   
+   const cardGenerator3 = new ProductCardGenerator(
+                              cardId: "sliderBar3", expandedLabel: bottom1Expanded, arrows: 
+                              false, auto_play: false)
+   cardGenerator3.renderCard()
+   
+   const cardGenerator4 = new ProductCardGenerator(
+                              cardId: "sliderBar4", expandedLabel: shoes1Expanded, 
+                              arrows: false, auto_play: false)
+   cardGenerator4.renderCard()
+   
+   const cardGenerator5 = new ProductCardGenerator(
+                              cardId: "sliderBar5", expandedLabel: bag1Expanded, 
+                              arrows: false, auto_play: false)
+   cardGenerator5.renderCard()
+   
+   const cardGenerator6 = new ProductCardGenerator(
+                              cardId: "sliderBar6", expandedLabel: dress1Expanded, 
+                              arrows: false, auto_play: false)
+   cardGenerator6.renderCard()
+   
+   // Step 2: Generate Horizontal Slider Bar
+   const sliderBarGenerator = new SliderBar("sliderBar")
+   sliderBarGenerator.renderSliderBar()
+            </code>
+         </pre>
+      </div>
+   </section>
+   <br>
+
+   <!-- Labels and PopUp Dialogues -->
+   <section>
+      <h1> Labels and Pop-up Dialogs</h1>
+      <p><b>Add Popup dialogs to your outfit.</b></p>
+      <div id="popup">
+      </div>
+   </section>
+   <section>
+      <p><b>Example Code:</b></p>
+      <div>
+         <div class="code-header">
+            HTML Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   &lt;div id="popup"&gt;&lt;/div&gt;
+            </code>
+         </pre>
+      </div>
+      <br>
+
+      <div>
+         <div class="code-header">
+            JS Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   // Create Outfit Generator
+   const og = new OutfitGenerator(imgSrc: './pics/outfit.jpg', divId: "popup")
+   og.makeOutfit()
+   
+   // Coordinates of each click on the picutre will be logged out in percentage form.
+   // Generate labels with relative position in outfit picture
+   const l1 = og.addLabel(x: 25, y: 25.89, 
+                          name: top1Expanded.labelName)
+   const l2 = og.addLabel(x: 23.5, y: 39.55, 
+                          name: accessory1Expanded.labelName)
+   const l3 = og.addLabel(x: 23.5, y: 51, 
+                          name: bottom1Expanded.labelName)
+   const l4 = og.addLabel(x: 21, y: 67, 
+                          name: shoes1Expanded.labelName)
+   const l5 = og.addLabel(x: 58.67995160384289, y: 35.091223353178414, 
+                          name: bag1Expanded.labelName)
+   const l6 = og.addLabel(x: 86.25673009059877, y: 35.828692145189166, 
+                          name: dress1Expanded.labelName)
+   
+   // Link expanded labels to existing labels and render them properly
+   // NOTE: linkExpandedLabel will call render functions to render the dialog automatically 
+   og.linkExpandedLabel(top1Expanded)
+   og.linkExpandedLabel(accessory1Expanded)
+   og.linkExpandedLabel(bottom1Expanded)
+   og.linkExpandedLabel(shoes1Expanded)
+   og.linkExpandedLabel(bag1Expanded)
+   og.linkExpandedLabel(dress1Expanded)
+   
+   
+   // Added option to toggle the labels
+   // Can click to display/hide the existing labels in pictures
+   og.toggleLabels()
+            </code>
+         </pre>
+      </div>
+   </section>
+   <br>
+
+   <!-- Click to Add Labels-->
+   <section>
+      <h1>Click to Add Labels</h1>
+      <p><b>Click and fill the input box with your label name, .</b></p>
+      <div id="click">
+      </div>
+   </section>
+   <section>
+      <p><b>Example Code:</b></p>
+      <div>
+         <div class="code-header">
+            HTML Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   &lt;div id="click"&gt;&lt;/div&gt;
+            </code>
+         </pre>
+      </div>
+      <br>
+
+      <div>
+         <div class="code-header">
+            JS Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   const og2 = new OutfitGenerator('./pics/outfit.jpg', "click")
+   og2.makeOutfitAndAddLabels()
+            </code>
+         </pre>
+      </div>
+   </section>
+   <br>
+   <section class="footer">
+      <hr>
+      <p class="footer-text">Fashion.js Library v1.0.0, authored by Sailing Ni</p>
+   </section>
+    <!-- Magnifier -->
+    <section>
+      <h1>Magnifier</h1>
+      <p><b>Basic magnifer for a image div. </b></p>
+
+      <div class="card">
+         <div class="imgDiv">
+            <img id="myimage" src="./pics/shoes1.jpg">
+         </div>
+
+         <div class="container">
+            <p> Hover over image area to trigger maginifer.</p>
+         </div>
+
+         <div class="container">
+            <label for="points">Adjust Magnifier Zoom Scale:</label>
+         <div class="slider">
+            <input id="range" type = "range" step="0.1" min="1" max="3"/>
+            <output id="rangevalue" >2</output>x
+         </div>
+         
+      </div>
+      
+   </section>
+   <section>
+      <p><b>Example Code:</b></p>
+      <div>
+         <div class="code-header">
+            HTML Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   &lt;img id="myimage" src="./pics/shoes1.jpg"&gt;
+            </code>
+         </pre>
+      </div>
+      <br>
+
+      <div>
+         <div class="code-header">
+            JS Code 
+         </div>
+         <pre class="code-block">
+            <code class="code-content">
+   const magnifier = new Magnifier(imgID:"myimage", zoom: 2);
+   magnifier.magnify()
+            </code>
+         </pre>
+      </div>
+   </section>
+   <br>
+
+</body>
+</html>
+
+ </body>
+
+</html>
